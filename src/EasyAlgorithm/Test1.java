@@ -228,5 +228,76 @@ public class Test1 {
 
 
     }
+    @Test
+    /**
+     * 题目：一个数如果恰好等于它的因子之和，这个数就称为完数。例如 6=1+2+3，编程找出1000以内的所有完数
+     * 逻辑：如果p是质数，且2^(p-1)也是质数，那么(2^(p-1))*2^(p-1)便是一个完全数。
+     */
+    public void test_solution(){
+        System.out.println("1到1000的完数有：");
+        for(int i =1; i < 1000; i++){
+            //每一次循坏开始，t都是重新计算的。
+            int t = 0;
+            //进行满足条件的累加，然后进行求和。
+            for(int j  = 1; j <= i/2; j++){
+                if(i % j == 0){
+                    t = t + j;
+                }
+            }
+            //判断和是否相等
+            if(t == i){
+                System.out.println(i + " ");
+            }
+        }
+
+    }
+
+    @Test
+    /**
+     * 题目:求s=a+aa+aaa+aaaa+aaaa...aa的值，其中a是一个数字。例如2+22+222+2222+22222(此时共有5个数相加)，几个数相加由键盘控制。
+     * 逻辑:定义一个变量b，赋初值为0；定义一变量sum，赋初值为0，进入循环后，将a+b的值赋给b，将sum+b的值赋给sum;同时，将a增加十倍，++i;
+     * 继续循环；循环结束后，输出sum的值。
+     */
+    public void test_asum(){
+        long a = 2, b = 0;
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int i = 0;
+        long sum = 0;
+        while (i < n){
+            b = b + a;
+            sum = sum + b;
+            a = a * 10;
+            ++i;
+        }
+        System.out.println("input number:" + n);
+        System.out.println(sum);
+    }
+
+    @Test
+    /**
+     * 题目：有1、2、3、4,4个数字，能组成多少个互不相同且无重复数字的三位数？都是多少？
+     * 逻辑：可填在百位、十位、个位的数字都是1、2、3、4.组成所有的排列后再去掉不满足条件的排列。
+     */
+    public void test_AC(){
+        int count = 0;
+        for(int x = 1; x < 5;x++){
+            for(int y = 1;y < 5; y++){
+                for(int z = 1; z <5; z++){
+                    //判断没有重复数字的条件。
+                    if(x!=y&&x!=z&&y!=z){
+                        count++;
+                        System.out.print(x*100 + y*10 + z +" ");
+                        //这个是为了让结果更加明显，更加规范。
+                        if(count%6==0){
+                            System.out.println();
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println("共有" + count + "个三位数");
+    }
+
 }
 

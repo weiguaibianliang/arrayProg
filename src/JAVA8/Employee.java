@@ -5,7 +5,7 @@ public class Employee {
     private int age;
     private double salary;
     //有参构造器和无参构造器
-    public Employee(){
+    public Employee(int i, String name, int age, double salary){
 
     }
     public Employee(String name, int age, double salary) {

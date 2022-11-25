@@ -119,7 +119,7 @@ import java.awt.event.MouseListener;
             if(userName.equals("huzheng")&&userPwd.equals("212010108")){
                 JOptionPane.showMessageDialog(null, "将进入三角形的平移、对称和旋转界面！");
                 new Triangle();
-                setVisible(false);
+                setVisible(true);
             }else {
                 JOptionPane.showMessageDialog(null,"用户密码错误","错误",
                         JOptionPane.INFORMATION_MESSAGE);

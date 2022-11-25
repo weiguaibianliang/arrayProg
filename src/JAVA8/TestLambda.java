@@ -62,6 +62,7 @@ public class TestLambda {
     //优化方式一：采用策略设计模式
     @Test
     public void test4(){
+        //采用实现接口的方法
         List<Employee> list = filterEmployee(employees,new FilterEmployeeByAge());
         for (Employee employee: list) {
             System.out.println(employee);
@@ -87,6 +88,7 @@ public class TestLambda {
     @Test
     public void test5(){
         List<Employee> list = filterEmployee(employees, new MyPredicate<Employee>() {
+            //重写接口中的方法
             @Override
             public boolean test(Employee t) {
                 return t.getSalary()<=5000;
